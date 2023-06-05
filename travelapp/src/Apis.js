@@ -3,7 +3,7 @@ import axios from "axios";
 export let endpoints = {
     "mostviewURL": "/most_view_tour/",
     "destination_all" : '/destination/' ,
-    'get_tour_detail_get_cmt' : (tourId) => `/tour_detail/${tourdId}/comment/`,
+    'get_tour_detail_get_cmt' : (tourId) => `/tour_detail/${tourId}/comment/`,
     "add_cmt": (tourId) => `/tour/${tourId}/add_comment/`,
 
     "add_rating" : (cmtId) => `/tour/${cmtId}/add_rating/`,
