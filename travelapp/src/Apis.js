@@ -4,6 +4,7 @@ import cookies from 'react-cookies';
 export let endpoints = {
     "mostviewURL": "/most_view_tour/",
     "destination_all" : '/destination/' ,
+    'tour': '/tour/',
     'get_tour_detail_get_cmt' : (tourId) => `/tour_detail/${tourId}/comment/`,
     "add_cmt": (tourId) => `/tour/${tourId}/add_comment/`,
 
@@ -28,7 +29,7 @@ export let endpoints = {
     'add_staff' : `/staff/`,
 
 
-    'current_user': '/user/current_user/',
+    'current_user': '/users/current-user/',
     'login': '/o/token/',
     "oauth2-info": '/oauth2-info/',
     "get_tag_blog" : "/tag_blog/",

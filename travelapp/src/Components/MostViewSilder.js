@@ -3,7 +3,8 @@ import Moment from 'react-moment';
 import React, { Component, useEffect , useState} from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Apis, {endpoints} from "../Apis";import {faStar, faCalendarDays, faTimesCircle, faEye} from '@fortawesome/free-solid-svg-icons';
+import Apis, {endpoints} from "../Apis";
+import {faStar, faCalendarDays, faTimesCircle, faEye} from '@fortawesome/free-solid-svg-icons';
 import { NumericFormat } from 'react-number-format';
 import Slider from "react-slick";
 
