@@ -1,4 +1,5 @@
 import axios from "axios";
+import cookies from 'react-cookies';
 
 export let endpoints = {
     "mostviewURL": "/most_view_tour/",
@@ -49,5 +50,6 @@ export let AuthAPI = axios.create({
 })
 
 export default axios.create({
-    baseURL: "https://etravel12.pythonanywhere.com"
+    baseURL: "https://etravel12.pythonanywhere.com",
+    
 })

@@ -6,8 +6,10 @@ const Layout = () => {
   return (
     <>
         <Navbar />
-
+        <div style={{position: 'absolute', top: '120px'}}>
           <Outlet />
+        </div>
+          
         
     </>
   )

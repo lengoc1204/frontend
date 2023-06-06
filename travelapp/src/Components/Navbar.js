@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../images/fly.png"
+import logo from "../images/fly.png";
+import Nav from "./Nav";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBarsStaggered, faXmark, faSearch, faPhoneAlt, faUserAlt} from '@fortawesome/free-solid-svg-icons';
 function Navbar(){
@@ -39,16 +40,9 @@ function Navbar(){
   return(
     <div>
       <div className={click ? "main-container" : ""} onClick={()=>Close()}></div>
-      
+    
       <nav id="nav" className="navbar" onClick={e=>e.stopPropagation()}>
-        {/* <div className="top">
-          <div className="nav-left">
-            <FontAwesomeIcon className="fa fa-bars" icon={faPhoneAlt} /> 1800797876
-          </div>
-          <div className="nav-right">
-          <FontAwesomeIcon className="fa fa-bars" icon={faUserAlt} />
-          </div>
-        </div> */}
+         
         <div className="nav-container">
             <NavLink style={{display: 'flex'}} exact to="/" className="nav-logo">
               <img
@@ -89,10 +83,12 @@ function Navbar(){
                   onClick={click? handleClick :null}
                 >Deal</NavLink>
               </li>
-              <li style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <div style={{paddingLeft: "30px", paddingRight: "30px", display: 'flex', borderLeft: '1px solid black'}}>
-                  <FontAwesomeIcon  icon={faSearch} /> 
-                </div>
+              <li className="nav-item">
+                <NavLink exact to="/login"
+                  activeClassName="active"
+                  className="nav-links"
+                  onClick={click? handleClick :null}
+                >Login</NavLink>
               </li>
             </ul>
             <div className="nav-icon" onClick={handleClick}>
