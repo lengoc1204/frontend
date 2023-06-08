@@ -2,7 +2,7 @@ import Banner from "../Components/Banner";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faLocationDot, faPlaneDeparture, faTags, faMagnifyingGlassLocation, faCalendarDays, faArrowUp19} from '@fortawesome/free-solid-svg-icons';
-import MostView from "../Components/MostView";
+
 import MostViewSilder from "../Components/MostViewSilder";
 
 export default function Home(){
@@ -104,7 +104,6 @@ export default function Home(){
                 </div>
             </div>
             <div className="offer-area pd-top-70">
-                <Container>
                     <Row className="justify-content-center">
                         <Col lg={8} xl={6}>
                             <div className="section-title text-center">
@@ -115,17 +114,20 @@ export default function Home(){
                             </div>
                         </Col>
                         <div className="discount-list-slider">
-                            <Container>
                                 <Row>
-                                    <Col xl={9} lg={10}>
+                                    <Col className="align-self-center" xl="3" lg={{ span: 4, order: 12 }}>
+                                        <div style={{textAlign: 'center', paddingLeft: '30px', color: "white"}}>
+                                            <h3>Intro</h3>
+                                        </div>
+                                    </Col>
+                                    <Col  xl="9" lg={{ span: 8, order: 12 }}>
                                         <MostViewSilder />
                                     </Col>
+                                    
                                 </Row>
 
-                            </Container>
                         </div>
                     </Row> 
-                    </Container>
             </div>
         </div>
         

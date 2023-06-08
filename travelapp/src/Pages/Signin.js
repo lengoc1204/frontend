@@ -73,24 +73,7 @@ export default function Signin() {
     <div className="login-section" style={{backgroundImage: `url(${loginImage})` , height: '800px'}}>
       <ToastContainer />
 
-      <div>
-        <form onSubmit={login}>
-          <input
-            value={username}
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter username"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-
+     
       <section className="login-form-section">
         <div className="container">
           <div className="row justify-content-center">
@@ -102,12 +85,13 @@ export default function Signin() {
             <div className="col-md-6 col-lg-4">
               <div className="login-wrap p-0">
                 <h3 className="mb-4 text-center">Have an account?</h3>
-                <form action="#" class="signin-form">
+                <form class="signin-form" onSubmit={login}>
                   <div className="form-group">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Username"
+                      onChange={(e) => setUsername(e.target.value)}
                       required
                     />
                   </div>
@@ -115,6 +99,7 @@ export default function Signin() {
                     <input
                       id="password-field"
                       type="password"
+                      onChange={(e) => setPassword(e.target.value)}
                       className="form-control"
                       placeholder="Password"
                       required

@@ -1,44 +1,47 @@
 import { Row, Col, Container } from "react-bootstrap";
 import loginImage from "../images/lg.jpg";
 import { useEffect, useState } from "react";
-import Apis, {endpoints} from "../Apis";
-import 'moment-timezone';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Apis, { endpoints } from "../Apis";
+import "moment-timezone";
+import { Pagination, CircularProgress } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
-import Moment from 'react-moment';
-import { NumericFormat } from 'react-number-format';
-export default function TourList() {
-    const [tour, setTour] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [count , setCount] = useState(0)
-    const [page, setPage] = useState(1)
-    const [prev, setPrev] = useState(null)
-    const [next , setNext] = useState(null)
+import Moment from "react-moment";
+import { NumericFormat } from "react-number-format";
+import { Link } from "react-router-dom";
 
-    const location = useLocation()
-    
-    useEffect(()=>{
-        let query = location.search
-        
-            if(query ==='')
-                query = `?page=${page}`
-        Apis.get(`${endpoints['tour']}${query}`)
-        .then(res=>{
-            setTour(res.data.results);
-            setLoading(true);console.log('tour', res.data)
-            setNext(res.data.next)
-            setPrev(res.data.previous)
-            setCount(res.data.count)   
-        })
-        .catch(err => {
-            setLoading(false);
-            setError(err);
-        });
-        
-    }, [page,next,prev])
-    console.log(page)
+export default function TourList() {
+  const [tour, setTour] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [count, setCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const [prev, setPrev] = useState(null);
+  const [next, setNext] = useState(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    let query = location.search;
+
+    if (query === "") query = `?page=${page}`;
+    setLoading(true);
+    Apis.get(`${endpoints["tour"]}${query}`)
+      .then((res) => {
+        setLoading(false);
+        setTour(res.data.results);
+        console.log("tour", res.data);
+        setNext(res.data.next);
+        setPrev(res.data.previous);
+        setCount(res.data.count);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err);
+      });
+  }, [page, next, prev]);
+  console.log(page);
   return (
     <div>
       <div
@@ -147,16 +150,24 @@ export default function TourList() {
               </div>
             </Col>
             <Col xl="9" lg={{ span: 8, order: 12 }}>
+              {loading && <CircularProgress style={{ left: "50%" }} />}
               <div className="tour-list-area">
-              {tour.map(l => <SingleTour obj={l} />)}
-              </div>
-              <div className="d-flex justify-content-center mt-5">
-              <div className="d-flex justify-content-center mt-5">
-                    <Pagination count={Math.ceil(count/20)} onChange={(event, value) => setPage(value)} page={page}
-                    style= {{outline : 'none',border:'none'}} color="secondary" />
-                </div>
+                {tour.map((l) => (
+                  <SingleTour obj={l} />
+                ))}
 
+                <div className="d-flex justify-content-center mt-5">
+                  <div className="d-flex justify-content-center mt-5">
+                    <Pagination
+                      className="pagination-tour"
+                      count={Math.ceil(count / 20)}
+                      onChange={(event, value) => setPage(value)}
+                      page={page}
+                      style={{ outline: "none", border: "none" }}
+                    />
+                  </div>
                 </div>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -166,91 +177,107 @@ export default function TourList() {
 }
 
 function SingleTour(props) {
-    let remain = '';
-    let price ='';
-    let return_rate = (rate) =>{
-        if (rate !== null){
-            return rate
-        }else{
-            return 0
-        }
+  let remain = "";
+  let price = "";
+  let return_rate = (rate) => {
+    if (rate !== null) {
+      return rate;
+    } else {
+      return 0;
     }
-    if (props.obj.slot <= 0 ){
-        remain = <>
-        <span>Out of slot:</span><span className="slot">{props.obj.slot}</span>  
-    </>
-    }else{
-        remain = <>
-            <span>Remaining:</span><span className="slot">{props.obj.slot}</span>  
-        </>
-    }
-   
-    if (props.obj.discount >=1 ){
-        price = <>
-            <div className="price_present">
-                <span>{props.obj.price} VND</span>
-            </div>
-            <div className="d-flex align-items-center">
-                <span class="material-icons-outlined">
-                    trending_down
-                </span>
-            </div>
-            <div className="price_discount">
-                <span>{props.obj.discount} VND</span>
-            </div>
-        </>
-    }else{
-        price = <>
-            <div className="price_present">
-                <span>{props.obj.price} VND</span>
-            </div>
-        </>
-        
-    }
+  };
+  if (props.obj.slot <= 0) {
+    remain = (
+      <>
+        <span>Out of slot:</span>
+        <span className="slot">{props.obj.slot}</span>
+      </>
+    );
+  } else {
+    remain = (
+      <>
+        <span>Remaining:</span>
+        <span className="slot">{props.obj.slot}</span>
+      </>
+    );
+  }
+
+  if (props.obj.discount >= 1) {
+    price = (
+      <>
+        <div className="price_present">
+          <span>{props.obj.price} VND</span>
+        </div>
+        <div className="d-flex align-items-center">
+          <span class="material-icons-outlined">trending_down</span>
+        </div>
+        <div className="price_discount">
+          <span>{props.obj.discount} VND</span>
+        </div>
+      </>
+    );
+  } else {
+    price = (
+      <>
+        <div className="price_present">
+          <span>{props.obj.price} VND</span>
+        </div>
+      </>
+    );
+  }
+
+  let path = `/tour/${props.obj.id}/`;
 
   return (
-    <div className="item">
-      <div className="tour-img">
-        <img src={props.obj.image} />
-      </div>
-      <div className="tour-detail">
-        <div className="tour-item-review">
-          <i className="tour-star fa fa-star"></i>
-          <span>{return_rate(props.obj.rate[0].rate__avg)}</span>
+    <Link to={path}>
+      <div className="item">
+        <div className="tour-img">
+          <img src={props.obj.image} />
         </div>
-        <p className="location">
-          <img src="/react/viaje/assets/img/icons/1.png" alt="map" />
-          {props.obj.destination}
-        </p>
-        <h4 className="title">
-          <a href="#/tour-details">{props.obj.name}</a>
-        </h4>
-        <div className="list-price">
-          <ul className="list d-inline-block">
-            <li>
-              <i className="fa fa-calendar-o"></i> 
-              <Moment format="YYYY/MM/DD" withTitle>
-                            {props.obj.time_start}
+        <div className="tour-detail">
+          <div className="tour-item-review">
+            <i className="tour-star fa fa-star"></i>
+            <span>{return_rate(props.obj.rate[0].rate__avg)}</span>
+          </div>
+          <p className="location">
+            <FontAwesomeIcon className="i" icon={faLocationDot} />
+            {props.obj.destination.name}
+          </p>
+          <h4 className="title">
+            <a href="#/tour-details">{props.obj.name}</a>
+          </h4>
+          <div className="list-price">
+            <ul className="list d-inline-block">
+              <li>
+                <i className="fa fa-calendar-o"></i>
+                <Moment format="YYYY/MM/DD" withTitle>
+                  {props.obj.time_start}
                 </Moment>
-            </li>
-            <li>
-              <i className="fa fa-clock-o"></i> 
-              {props.obj.duration}
-            </li>
-            <li>
-              <i className="fa fa-star"></i> 
-              {props.obj.slot}
-            </li>
-          </ul>
-          <div className="price d-inline-block">
-            <p>Price</p>
-            <h2>
-            <NumericFormat value={props.obj.price} displayType={'text'} thousandSeparator={'.'} decimalSeparator={','} /> 
-               <span>₫</span>
-            </h2>
+              </li>
+              <li>
+                <i className="fa fa-clock-o"></i>
+                {props.obj.duration}
+              </li>
+              <li>
+                <i className="fa fa-star"></i>
+                {props.obj.slot}
+              </li>
+            </ul>
+            <div className="price d-inline-block">
+              <p>Price</p>
+              <h2>
+                <NumericFormat
+                  value={props.obj.price}
+                  displayType={"text"}
+                  thousandSeparator={"."}
+                  decimalSeparator={","}
+                />
+                <span>₫</span>
+              </h2>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -93,7 +93,7 @@ function Navbar(){
             </ul>
             <div className="nav-icon" onClick={handleClick}>
               {click? <FontAwesomeIcon className="fa fa-bars" icon={faXmark} /> : <FontAwesomeIcon className="fa fa-bars" icon={faBarsStaggered} />}
-              <i className={click? "fa fa-times" : "fa fa-bars"}></i>
+              
             </div>
         </div>
 
