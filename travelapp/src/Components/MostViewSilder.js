@@ -130,9 +130,6 @@ function MostViewItem(props) {
               />{" "}
               <small>₫</small>
             </h2>
-            <del>
-              620<span>$</span>
-            </del>
           </div>
         </div>
       </div>
