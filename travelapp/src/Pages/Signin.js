@@ -5,7 +5,7 @@ import LoginUser from "../Actions/Creator";
 import { useDispatch } from "react-redux";
 import cookies from "react-cookies";
 import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImage from '../images/lg.jpg';
 
 export default function Signin() {
@@ -112,7 +112,7 @@ export default function Signin() {
                   <div class="form-group">
                     <button
                       type="submit"
-                      class="form-control btn btn-primary submit px-3"
+                      className="form-control btn btn-primary submit px-3"
                     >
                       Sign In
                     </button>
@@ -142,6 +142,13 @@ export default function Signin() {
                   <a href="/" className="px-2 py-2 ml-md-1 rounded" style={{marginLeft:'1rem'}}>
                     <span className="ion-logo-twitter mr-2"></span> Twitter
                   </a>
+                </div>
+                <div className="register d-flex text-center">
+                <button
+                      className="register-btn"
+                    ><Link to="/register">
+                      Create an account</Link>
+                    </button>
                 </div>
               </div>
             </div>

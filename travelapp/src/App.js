@@ -14,6 +14,7 @@ import Home from './Pages/Home';
 import Details from './Pages/Details';
 import { useDispatch, useSelector, useStore } from "react-redux";
 import TourDetail from './Pages/TourDetail';
+import Register from './Pages/Register';
 
 function App() {
 let userPath = {}
@@ -23,7 +24,7 @@ if (user !== null && user !== undefined){
   userPath = {path: "/profile",element: <h1 style={{paddingTop:'100px'}}>profile page</h1>}
   
 }else{
-  userPath = {path: "/profile",element: <h1 style={{paddingTop:'100px'}}>Login plz</h1>}
+  userPath = {path: "/register",element: <Register />}
 }
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/tours/:tourId",
         element: <Details />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
       {userPath},
       {path: "*",

@@ -108,6 +108,9 @@ small {
   color: #071c55 !important;
   border-color: #565dbd;
 }
+/*REGISTER PAGE */
+
+
 /*login*/
 
 .login-section {
@@ -144,18 +147,7 @@ small {
   /* Chrome/Opera/Safari */
   color: rgba(255, 255, 255, 0.8) !important;
 }
-.form-control::-moz-placeholder {
-  /* Firefox 19+ */
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-.form-control:-ms-input-placeholder {
-  /* IE 10+ */
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-.form-control:-moz-placeholder {
-  /* Firefox 18- */
-  color: rgba(255, 255, 255, 0.8) !important;
-}
+
 .form-control:hover,
 .form-control:focus {
   background: transparent !important;
@@ -274,6 +266,34 @@ textarea.form-control {
   font-family: "FontAwesome";
   color: rgba(254, 254, 254, 0.2);
 }
+
+.register{
+  padding-top: 50px;
+
+}
+.register .register-btn{
+  width: 100%;
+  background-color: #071c55;
+  color: #ffffff !important;
+  height: 58px;
+  line-height: 48px;
+  padding: 0 22px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  transition: all 0.5s ease;
+}
+
+
+
+.register .register-btn a{
+  color: white !important;
+}
+.register .register-btn:hover{
+  background: linear-gradient(to bottom right, #071c55 40%, #f3941e 100%);
+}
+
 .text-md-right a {
   color: #fff !important;
 }
@@ -282,6 +302,7 @@ textarea.form-control {
     text-align: right !important;
   }
 }
+/*----------------------------*/
 label {
   font-size: 14px;
   font-weight: 600;
