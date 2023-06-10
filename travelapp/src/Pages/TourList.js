@@ -2,6 +2,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import loginImage from "../images/lg.jpg";
 import { useEffect, useState } from "react";
 import Apis, { endpoints } from "../Apis";
+import { useParams } from "react-router"
 import "moment-timezone";
 import { Pagination, CircularProgress } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +22,6 @@ export default function TourList() {
   const [next, setNext] = useState(null);
 
   const location = useLocation();
-
   useEffect(() => {
     let query = location.search;
 
@@ -226,12 +226,12 @@ function SingleTour(props) {
     );
   }
 
-  let path = `/tour/${props.obj.id}/`;
+  let path = `/tours/${props.obj.id}/`;
 
   return (
     <Link to={path}>
       <div className="item">
-        <div className="tour-img">
+        <div className="tour-img" style={{marginBottom :'unset'}}>
           <img src={props.obj.image} />
         </div>
         <div className="tour-detail">

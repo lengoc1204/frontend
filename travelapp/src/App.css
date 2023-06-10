@@ -10,12 +10,34 @@ a {
 li {
   list-style: none !important;
 }
+button{
+  cursor:  pointer !important;
+}
+
 a,
 a:hover,
 a:focus,
 a:active {
   text-decoration: none !important;
   outline: none !important;
+}
+.turn-back button{
+  background-color: #f3941e !important;
+  color: #ffffff !important;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 22px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  transition: all 0.5s ease;
+}
+.turn-back button:hover{
+  background: linear-gradient(to bottom right, #071c55 30%, #f3941e 100%);
+}
+.turn-back button a{
+  color: #fcfcfc !important;
 }
 /*FOOTER*/
 

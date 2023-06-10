@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Apis, { endpoints } from "../Apis";
 import { Card, Image, Row, Col } from "react-bootstrap";
-import App from "../App.css";
 import { faCalendarDays, e } from "@fortawesome/free-solid-svg-icons";
 import { NumericFormat } from "react-number-format";
 

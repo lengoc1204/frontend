@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="container">
           <div className="footer-contact d-block d-md-flex align-items-center px-5">
             <div>
-              <h2 className="mb-0">Ready for a next project?</h2>
+              <h2 className="mb-0">Footer.......?</h2>
               <h3 className="text-dark">Let's get started!</h3>
             </div>
             <div className="ml-auto">
@@ -27,10 +27,10 @@ export default function Footer() {
               <h3>Customers</h3>
               <ul className="list-unstyled links">
                 <li>
-                  <a href="#">Buyer</a>
+                  <a href="#">............</a>
                 </li>
                 <li>
-                  <a href="#">Supplier</a>
+                  <a href="#">..........</a>
                 </li>
               </ul>
             </div>
@@ -41,7 +41,7 @@ export default function Footer() {
                   <a href="#">About us</a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="#">Tours</a>
                 </li>
                 <li>
                   <a href="#">Contact us</a>
