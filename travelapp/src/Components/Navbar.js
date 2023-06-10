@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/fly.png";
-import {  NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from "react-bootstrap";
 import user from "../images/user.png";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import cookies from "react-cookies";
 import LogoutUser from "../Actions/Logout";
-import Apis, {endpoints} from "../Apis";
+import Apis, { endpoints } from "../Apis";
 import { useHistory, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -24,8 +24,8 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector(state => state.user.user)
-  const onScrollPage = () => {
+  const user = useSelector((state) => state.user.user);
+  const onScrollPage = useCallback(() => {
     let scrolledPercentage = 0;
     const winHeightPx =
       document.documentElement.scrollHeight -
@@ -35,20 +35,21 @@ function Navbar() {
     setScrolledBar(scrolledPercentage);
     setScrolled(document.documentElement.scrollTop);
 
+    let element = document.getElementById("nav");
+    if (!element) return;
     if (scrolled >= 50) {
-      let element = document.getElementById("nav");
       element.style.background = "gainsboro";
     } else {
       let element = document.getElementById("nav");
       element.style.background = "white";
     }
-  };
+  }, [scrolled]);
 
-  useEffect(async () => {
-  
+  useEffect(() => {
     onScrollPage();
     window.addEventListener("scroll", onScrollPage);
-  }, []);
+    return () => window.removeEventListener("scroll", onScrollPage);
+  }, [onScrollPage]);
 
   const handleClick = () => {
     setClick(!click);
@@ -66,32 +67,36 @@ function Navbar() {
     window.location.reload();
   };
 
-  let path = <>
-      <li className="nav-item"><NavLink
-                exact
-                to="/login"
-                className="nav-links"
-                onClick={click ? handleClick : null}
-              >
-                Login
-              </NavLink></li>
-    </>
-    if (user !== null && user !== undefined) {
-      path = <>
+  let path = (
+    <>
       <li className="nav-item">
-        <NavLink exact
-                to="/profile"
-                className="nav-links">{user.username}</NavLink></li>
-        <li className="nav-item"><NavLink
-                exact
-                to="/login"
-                className="nav-links"
-                onClick={logout}
-              >
-                Logout
-              </NavLink></li>
-        </>
-    }
+        <NavLink
+          exact
+          to="/login"
+          className="nav-links"
+          onClick={click ? handleClick : null}
+        >
+          Login
+        </NavLink>
+      </li>
+    </>
+  );
+  if (user !== null && user !== undefined) {
+    path = (
+      <>
+        <li className="nav-item">
+          <NavLink exact to="/profile" className="nav-links">
+            {user.username}
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink exact to="/login" className="nav-links" onClick={logout}>
+            Logout
+          </NavLink>
+        </li>
+      </>
+    );
+  }
 
   return (
     <div>
