@@ -11,6 +11,7 @@ import Layout from "./Components/Layout";
 import Signin from "./Pages/Signin";
 import TourList from "./Pages/TourList";
 import Home from "./Pages/Home";
+import SearchResult from "./Pages/SearchResult";
 import Details from "./Pages/Details";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import TourDetail from "./Pages/TourDetail";
@@ -41,6 +42,9 @@ function App() {
           path: "/register",
           element: <Register />,
         },
+        {path: '/search',
+        element: <SearchResult />
+      },
         { path: "*", element: <NotFountPage /> },
       ],
     },

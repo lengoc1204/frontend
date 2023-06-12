@@ -1,7 +1,6 @@
 import Carousel from 'react-material-ui-carousel';
-import { bannerURL } from '../contants';
 import React, { useState } from 'react';
-import axios from "axios";
+import Apis, {endpoints} from '../Apis';
 import { connect } from "react-redux";
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -9,21 +8,26 @@ import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 
 export default function Banner(){
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
+    const [banner, setBanner] = useState([]);
+    const [loading, setLoading]=useState(false)
+
+    useEffect(()=>{
+        setLoading(true);
+        Apis.get(`${endpoints["banner"]}`)
+      .then((res) => {
+        setLoading(false);
+        setBanner(res.data);
+        console.log(res.data)
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+    })
     
     return (
            <Carousel>
             {
-                items.map( (item, i) => <Item key={i} item={item} /> )
+                banner.map( (item, i) => <Item key={i} item={item} /> )
             }
         </Carousel> 
         
@@ -34,14 +38,9 @@ export default function Banner(){
 function Item(props)
 {
     return (
-        <div style={{height: '80vh', background: 'lightGrey'}}>
+        <div className='banner' style={{height: '80vh', background: 'white'}}>
             
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
+            <img src={props.item.image} />
         </div>
     )
 }

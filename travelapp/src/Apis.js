@@ -2,6 +2,7 @@ import axios from "axios";
 import cookies from 'react-cookies';
 
 export let endpoints = {
+    "banner": '/banners/',
     "mostviewURL": "/most_view_tour/",
     "destination" : '/destination/' ,
 

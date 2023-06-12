@@ -87,6 +87,8 @@ svg{
   border-bottom: 1px dashed #f3941e;
 }
 .single-view .view-img .tour-label {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -94,7 +96,7 @@ svg{
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, 0);
   color: #ffffff;
-  background-color: #f3941e;
+  background-color: #071c55;
   padding: 3px 35px;
   font-size: 14px;
   z-index: 2;
