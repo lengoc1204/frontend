@@ -9,13 +9,15 @@ export let endpoints = {
     "departure": "/departure/",
     'tour': '/tour/',
     'tour-detail' : (tourId) => `/tour/${tourId}/`,
+    
+    "add_booking" : (tourId) =>`/tour/${tourId}/checkout/`,
+
     "addTourViewURL" : tourId => `/tour/${tourId}/views/`,
     "add_cmt": (tourId) => `/tour/${tourId}/add_comment/`,
 
     "add_rating" : (cmtId) => `/tour/${cmtId}/add_rating/`,
     "get_rating" : (cmtId) => `/tour/${cmtId}/get_rating/`,
 
-    "add_booking" : (bookingid) =>`/tour/${bookingid}/add_booking/`,
     "get_booking_detail_by_user" : `/user/booking_detail/`,
     "update_booking" : (tourId) =>`/tour/${tourId}/update_booking/`,
     

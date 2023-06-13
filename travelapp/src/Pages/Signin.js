@@ -104,10 +104,6 @@ export default function Signin() {
                       placeholder="Password"
                       required
                     />
-                    <span
-                      toggle="#password-field"
-                      className="fa fa-fw fa-eye field-icon toggle-password"
-                    ></span>
                   </div>
                   <div class="form-group">
                     <button
@@ -132,17 +128,6 @@ export default function Signin() {
                     </div>
                   </div>
                 </form>
-                <p className="w-100 text-center">
-                  &mdash; Or Sign In With &mdash;
-                </p>
-                <div className="social d-flex text-center">
-                  <a href="/" className="px-2 py-2 mr-md-1 rounded" style={{marginRight:'1rem'}}>
-                    <span className="ion-logo-facebook mr-2"></span> Facebook
-                  </a>
-                  <a href="/" className="px-2 py-2 ml-md-1 rounded" style={{marginLeft:'1rem'}}>
-                    <span className="ion-logo-twitter mr-2"></span> Twitter
-                  </a>
-                </div>
                 <div className="register d-flex text-center">
                 <button
                       className="register-btn"

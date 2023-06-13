@@ -143,10 +143,6 @@ export default function TourList() {
                     </div>
                   </div>
                 </div>
-                <h2>search</h2>
-                <h2>search</h2>
-                <h2>search</h2>
-                <h2>search</h2>
               </div>
             </Col>
             <Col xl="9" lg={{ span: 8, order: 12 }}>

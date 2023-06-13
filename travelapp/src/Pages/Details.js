@@ -84,7 +84,7 @@ export default function Details() {
       ></div>
       <div className="tour-details-area">
         <div className="tour-details">
-          <div style={{ paddingLeft: "30px", paddingRight: "30px" }}>
+          <div className="content" >
             <div>
               <Row className="tour-detail-img">
                 <Col sm={7} className="tour-img">
@@ -134,7 +134,9 @@ export default function Details() {
                     </div>
                   </div>
                   <div className="btn-booking">
-                    <button>BOOKING NOW</button>
+                  <a href={`/tours/${tourId}/booking/`}>
+                  <button>BOOKING NOW</button>
+                  </a>
                   </div>
                 </Col>
               </Row>

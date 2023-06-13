@@ -1,7 +1,8 @@
 import Banner from "../Components/Banner";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col} from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams, useHistory } from "react-router";
+import "./search.css";
+import { useLocation, useNavigate} from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlaneDeparture,
@@ -43,7 +44,6 @@ export default function Home() {
       .then((res) => {
         setLoading(false);
         setTour(res.data.results);
-        console.log("tour", res.data);
         setNext(res.data.next);
         setPrev(res.data.previous);
         setCount(res.data.count);
@@ -60,12 +60,10 @@ export default function Home() {
   const handleFetchDestination = async () => {
     let res_departure = await Apis.get(endpoints["departure"]);
     setDeparture(res_departure.data);
-    console.log("des", res_departure);
   };
   const handleFetchDeparture = async () => {
     let res_destination = await Apis.get(endpoints["destination"]);
     setDestination(res_destination.data);
-    console.log(res_destination);
   };
 
   const onchange_search_departure = (e) => {
@@ -156,7 +154,7 @@ export default function Home() {
         <div className="container">
           <div className="search-main">
             <form onSubmit={search}>
-              <Row>
+              <Row style={{alignItems: 'center'}}>
                 <Col lg={2} md={4}>
                   <div className="search-wrap">
                     <div className="search-label">

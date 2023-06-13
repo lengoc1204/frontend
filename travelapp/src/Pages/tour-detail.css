@@ -13,6 +13,7 @@
     padding-top: 30px;
 }
 .content-side .tour-info{
+    margin-top: 20px;
     padding-top: 24px;
     border-top: 1px solid #f3941e;
 }
@@ -24,8 +25,8 @@
 
 .tour-img-detail .tour-info{
     padding: 20px ;
-    border-top: 1px dashed #f3941e;
-    border-bottom: 1px dashed #f3941e;
+    border-top: 1px dashed #071c55;
+    border-bottom: 1px dashed #071c55;
     
 }
 
@@ -87,6 +88,24 @@
 }
 .btn-booking button:hover{
     opacity: 0.7;
+}
+.tour-details .content{
+    padding: 0 30px;
+}
+@media only screen and (max-width: 600px) {
+    .detail-price{
+        padding: 0px !important;
+    
+    }
+    .tour-details{
+        padding: 5px;
+    }
+    .tour-details .content{
+        padding: 0 10px;
+    }
+    .second-line .content-side {
+        padding-left: 0px !important;
+    }
 }
 .detail-price{
     padding: 40px;

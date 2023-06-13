@@ -27,7 +27,6 @@ export default function Register() {
       formdata.append("email", email);
       formdata.append("username", username);
       formdata.append("password", password);
-      formdata.append("avatar", avatar.current.files[0]);
       try {
         let res = await Apis.post(endpoints["register"], formdata, {
           headers: {
@@ -68,19 +67,19 @@ export default function Register() {
           </div>
           
           <Row className="justify-content-center">
-          <Col className="col-md-8 col-lg-6">
-          <form className="login-form" onSubmit={register} style={{height:'500px'}}>
+          <Col  className="col-md-8 col-lg-6">
+          <form className="signin-form" onSubmit={register} style={{height:'500px'}}>
                   <div className="form-group">
                     <Row>
                         
-                        <Col sm={4}><input
+                        <Col style={{paddingLeft: '0px'}} sm={4}><input
                       type="text"
                       className="form-control"
                       placeholder="Username"
                       onChange={(e) => setUsername(e.target.value)}
                       required
                     />
-                        </Col><Col sm={8}>
+                        </Col><Col style={{paddingRight: '0px'}} sm={8}>
                             <input
                       type="email"
                       className="form-control"
@@ -123,12 +122,6 @@ export default function Register() {
                       placeholder="Confirm Password"
                       required />
                   </div>
-                  <div className="form-group" controlId='Avatar'>
-                            <input className="form-control" type="file" ref={avatar} />
-                            
-                            </div>
-                    
-                  
                   <div class="form-group">
                     <button
                       type="submit"

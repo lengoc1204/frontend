@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/fly.png";
-import {  NavDropdown } from 'react-bootstrap';
-import user from "../images/user.png";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import cookies from "react-cookies";
 import LogoutUser from "../Actions/Logout";
-import Apis, {endpoints} from "../Apis";
-import { useHistory, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBarsStaggered,
   faXmark,
-  faSearch,
-  faPhoneAlt,
-  faUserAlt,
+  faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -81,8 +76,10 @@ function Navbar() {
       <li className="nav-item">
         <NavLink exact
                 to="/profile"
-                className="nav-links">{user.username}</NavLink></li>
-        <li className="nav-item"><NavLink
+                className="nav-links">
+                  <FontAwesomeIcon className="fa fa-bars" icon={faUserCircle} />
+                  </NavLink></li>
+        {/* <li style={{marginBottom: '0px'}} className="nav-item"><NavLink
                 exact
                 to="/login"
                 className="nav-links"
@@ -90,7 +87,7 @@ function Navbar() {
               >
                 Logout
               </NavLink></li>
-        </>
+         */}</>
     }
 
   return (
@@ -113,9 +110,10 @@ function Navbar() {
               src={logo}
               width="70"
               height="70"
+              style={{paddingRight: '20px'}}
               className="d-inline-block align-top app-title"
             />
-            {"    "}E Travel
+            E Travel
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
