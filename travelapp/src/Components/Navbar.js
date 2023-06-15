@@ -4,47 +4,47 @@ import logo from "../images/destination.gif";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import cookies from "react-cookies";
 import LogoutUser from "../Actions/Logout";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBarsStaggered,
   faXmark,
-  faUserCircle
+  faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [scrolled, setScrolled] = useState(0);
-  const [scrolledBar, setScrolledBar] = useState(0);
+  // const [scrolled, setScrolled] = useState(0);
+  // const [scrolledBar, setScrolledBar] = useState(0);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector(state => state.user.user)
+  const user = useSelector((state) => state.user.user);
   //console.log('user', user)
-  const onScrollPage = () => {
-    let scrolledPercentage = 0;
-    const winHeightPx =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    scrolledPercentage =
-      ((scrolled / winHeightPx) * 100) % console.log(scrolledPercentage);
-    setScrolledBar(scrolledPercentage);
-    setScrolled(document.documentElement.scrollTop);
+  // const onScrollPage = () => {
+  //   let scrolledPercentage = 0;
+  //   const winHeightPx =
+  //     document.documentElement.scrollHeight -
+  //     document.documentElement.clientHeight;
+  //   scrolledPercentage =
+  //     ((scrolled / winHeightPx) * 100) % console.log(scrolledPercentage);
+  //   setScrolledBar(scrolledPercentage);
+  //   setScrolled(document.documentElement.scrollTop);
 
-    if (scrolled >= 50) {
-      let element = document.getElementById("nav");
-      element.style.background = "gainsboro";
-    } else {
-      let element = document.getElementById("nav");
-      element.style.background = "white";
-    }
-  };
+  //   if (scrolled >= 50) {
+  //     let element = document.getElementById("nav");
+  //     element.style.background = "gainsboro";
+  //   } else {
+  //     let element = document.getElementById("nav");
+  //     element.style.background = "white";
+  //   }
+  // };
 
-  useEffect(() => {
-  
-    onScrollPage();
-    window.addEventListener("scroll", onScrollPage);
-  }, []);
+  // useEffect(() => {
+
+  //   onScrollPage();
+  //   window.addEventListener("scroll", onScrollPage);
+  // }, []);
 
   const handleClick = () => {
     setClick(!click);
@@ -53,33 +53,28 @@ function Navbar() {
     setClick(false);
   };
 
-  const logout = (event) => {
-    event.preventDefault();
-    cookies.remove("access_token");
-    cookies.remove("user");
-    dispatch(LogoutUser());
-    navigate("/");
-    window.location.reload();
-  };
-
-  let path = <>
-      <li className="nav-item"><NavLink
-                exact
-                to="/login"
-                className="nav-links"
-                onClick={click ? handleClick : null}
-              >
-                Login
-              </NavLink></li>
-    </>
-    if (user !== null && user !== undefined) {
-      path = <>
+  let path = (
+    <>
       <li className="nav-item">
-        <NavLink exact
-                to="/profile"
-                className="nav-links">
-                  <FontAwesomeIcon className="fa fa-bars" icon={faUserCircle} />
-                  </NavLink></li>
+        <NavLink
+          exact
+          to="/login"
+          className="nav-links"
+          onClick={click ? handleClick : null}
+        >
+          Login
+        </NavLink>
+      </li>
+    </>
+  );
+  if (user !== null && user !== undefined) {
+    path = (
+      <>
+        <li className="nav-item">
+          <NavLink exact to="/profile" className="nav-links">
+            <FontAwesomeIcon className="fa fa-bars" icon={faUserCircle} />
+          </NavLink>
+        </li>
         {/* <li style={{marginBottom: '0px'}} className="nav-item"><NavLink
                 exact
                 to="/login"
@@ -88,8 +83,10 @@ function Navbar() {
               >
                 Logout
               </NavLink></li>
-         */}</>
-    }
+         */}
+      </>
+    );
+  }
 
   return (
     <div>
@@ -98,7 +95,7 @@ function Navbar() {
         onClick={() => Close()}
       ></div>
 
-      <nav id="nav" className="navbar" onClick={(e) => e.stopPropagation()}>
+      <nav id="nav" className="navbar">
         <div className="nav-container">
           <NavLink
             style={{ display: "flex" }}
@@ -111,7 +108,7 @@ function Navbar() {
               src={logo}
               width="70"
               height="70"
-              style={{paddingRight: '20px'}}
+              style={{ paddingRight: "20px" }}
               className="d-inline-block align-top app-title"
             />
             E Travel

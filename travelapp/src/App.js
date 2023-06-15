@@ -13,7 +13,7 @@ import Home from "./Pages/Home";
 import SearchResult from "./Pages/SearchResult";
 import Details from "./Pages/Details";
 import Profile from "./Pages/Profile";
-//import { useDispatch, useSelector, useStore } from "react-redux";
+import ForgotPassword from "./Pages/ForgotPassword";
 import Register from "./Pages/Register";
 
 function App() {
@@ -45,19 +45,24 @@ function App() {
           element: <Register />,
         },
         {
+          path: "/forgot-pasword",
+          
+          element: <ForgotPassword />,
+        },
+        {
           path: '/profile',
           element: <Profile />
         },
         {path: '/search',
         element: <SearchResult />
-      },
-        { path: "*", element: <NotFountPage /> },
-      ],
-    },
-    {
+      },{
       path: "/login",
       element: <Signin />,
     },
+        { path: "*", element: <NotFountPage /> },
+      ],
+    },
+    
   ]);
 
   return <RouterProvider router={router} />;

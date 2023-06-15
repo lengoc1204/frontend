@@ -28,7 +28,7 @@ export let endpoints = {
     'update_info': '/users/update_info/',
     'change_password': '/users/change-password/',
     'check_exist': '/users/check_exist/',
-    'forgot_password':'/users/forgot_password/',
+    'forgot_password':'/users/forgot-password/',
     'update_booking_user':'/users/update_booking/',
     'cancel_booking':'/users/cancel_booking/',
 
