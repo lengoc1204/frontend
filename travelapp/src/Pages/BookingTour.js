@@ -48,20 +48,23 @@ export default function BookingTour() {
   let closeMOdal = () => {
     setIs_open(false);
   };
-  useEffect(async () => {
-    try {
-      let res = await Apis.get(endpoints["tour-detail"](tourId));
-      setTour(res.data);
-      let res_user = await Apis.get(endpoints["current_user"], {
+  useEffect( () => {
+    getUser()
+    fetchTour()
+  }, []);
+
+  const getUser =async()=>{
+    let res_user = await Apis.get(endpoints["current_user"], {
         headers: {
           Authorization: `Bearer ${cookies.load("access_token")}`,
         },
       });
       setUser(res_user.data);
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
+  }
+  const fetchTour=async()=>{
+    let res = await Apis.get(endpoints["tour-detail"](tourId));
+      setTour(res.data);
+  }
 
   const add_booking = async (event) => {
     event.preventDefault();

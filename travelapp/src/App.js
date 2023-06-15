@@ -1,13 +1,10 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
 } from "react-router-dom";
 import Booking from "./Pages/Booking";
-import BookingTour from "./Pages/BookingTour";
-import Login from "./Pages/Login";
 import NotFountPage from "./Pages/NotFoundPage";
 import Layout from "./Components/Layout";
 import Signin from "./Pages/Signin";
@@ -15,7 +12,8 @@ import TourList from "./Pages/TourList";
 import Home from "./Pages/Home";
 import SearchResult from "./Pages/SearchResult";
 import Details from "./Pages/Details";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import Profile from "./Pages/Profile";
+//import { useDispatch, useSelector, useStore } from "react-redux";
 import Register from "./Pages/Register";
 
 function App() {
@@ -43,7 +41,12 @@ function App() {
       element: <Booking />},
         {
           path: "/register",
+          
           element: <Register />,
+        },
+        {
+          path: '/profile',
+          element: <Profile />
         },
         {path: '/search',
         element: <SearchResult />

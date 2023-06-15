@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../images/fly.png";
+import logo from "../images/destination.gif";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import cookies from "react-cookies";
 import LogoutUser from "../Actions/Logout";
@@ -20,6 +20,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const user = useSelector(state => state.user.user)
+  //console.log('user', user)
   const onScrollPage = () => {
     let scrolledPercentage = 0;
     const winHeightPx =
@@ -39,7 +40,7 @@ function Navbar() {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
   
     onScrollPage();
     window.addEventListener("scroll", onScrollPage);

@@ -21,7 +21,7 @@ export default function Banner(){
       .catch((err) => {
         setLoading(false);
       });
-    })
+    }, [])
     
     return (
            <Carousel>

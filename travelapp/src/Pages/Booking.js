@@ -2,11 +2,10 @@ import { toast, ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import { NumericFormat } from "react-number-format";
 import cookies from "react-cookies";
-import { Form, Button, Table, Row, Col } from "react-bootstrap";
+import { Table, Row, Col } from "react-bootstrap";
 import cookie from "react-cookies";
 import bookingImage from "../images/booking.jpg";
 import "./tour-detail.css";
-import axios from "axios";
 import "./booking.css";
 import { useParams, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,21 +53,23 @@ export default function Booking() {
   let closeMOdal = () => {
     setIs_open(false);
   };
-  useEffect(async () => {
-    try {
-      let res = await Apis.get(endpoints["tour-detail"](tourId));
-      setTour(res.data);
-      let res_user = await Apis.get(endpoints["current_user"], {
+  useEffect( () => {
+    getUser()
+    fetchTour()
+  }, []);
+
+  const getUser =async()=>{
+    let res_user = await Apis.get(endpoints["current-user"], {
         headers: {
           Authorization: `Bearer ${cookies.load("access_token")}`,
         },
       });
       setUser(res_user.data);
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
-
+  }
+  const fetchTour=async()=>{
+    let res = await Apis.get(endpoints["tour-detail"](tourId));
+      setTour(res.data);
+  }
   const add_booking = async (event) => {
     event.preventDefault();
     try {

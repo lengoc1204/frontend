@@ -234,10 +234,10 @@ export default function Home() {
                         onChange={onchange_price}
                       >
                         <option value="">Please Select Price</option>
-                        <option value="500000"> &lt;&#61; 500000</option>
-                        <option value="1000000">&lt;&#61; 1000000</option>
-                        <option value="2000000">&lt;&#61; 2000000</option>
-                        <option value="3000000">&lt;&#61; 3000000</option>
+                        <option value="2000000"> &lt;&#61; 2.000.000</option>
+                        <option value="2500000">&lt;&#61; 2.500.000</option>
+                        <option value="3000000">&lt;&#61; 3.000.000</option>
+                        <option value="5000000">&lt;&#61; 5.000.000</option>
                       </select>
                     </div>
                   </div>

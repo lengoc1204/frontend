@@ -18,9 +18,9 @@ export default function Signin() {
 
   const [flat, setFlat] = useState(false);
 
-  useEffect(() => {
-    console.info("Test");
-  });
+  // useEffect(() => {
+  //   console.info("Test");
+  // });
 
   const login = async (event) => {
     event.preventDefault();
@@ -122,9 +122,9 @@ export default function Signin() {
                       </label>
                     </div>
                     <div className="w-50 text-md-right">
-                      <a href="#" style={{ color: "white" }}>
+                      <Link to="/forgot-pasword" style={{ color: "white" }}>
                         Forgot Password
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </form>

@@ -18,29 +18,31 @@ export let endpoints = {
     "add_rating" : (cmtId) => `/tour/${cmtId}/add_rating/`,
     "get_rating" : (cmtId) => `/tour/${cmtId}/get_rating/`,
 
-    "get_booking_detail_by_user" : `/user/booking_detail/`,
+    "get_booking_by_user" : `/users/booking-detail/`,
     "update_booking" : (tourId) =>`/tour/${tourId}/update_booking/`,
     
     'all_booking' : '/booking/',
 
-
-    'get_user_by_id': (userID) =>`/user/${userID}/`,
-    'update_info': '/user/update_info/',
-    'check_exist': '/user/check_exist/',
-    'forgot_password':'/user/forgot_password/',
-    'uppdate_booking_user':'/user/update_booking/',
-    'cancel_booking_user':'/user/cancel_booking/',
+    'current_user': '/users/current-user/',
+    'get_user_by_id': (userID) =>`/users/${userID}/`,
+    'update_info': '/users/update_info/',
+    'change_password': '/users/change-password/',
+    'check_exist': '/users/check_exist/',
+    'forgot_password':'/users/forgot_password/',
+    'update_booking_user':'/users/update_booking/',
+    'cancel_booking':'/users/cancel_booking/',
 
     'update_staff' : (userID) =>  `/staff/${userID}/`,
     'add_staff' : `/staff/`,
 
 
-    'current_user': '/users/current-user/',
+    
+
     'login': '/o/token/',
     "oauth2-info": '/oauth2-info/',
     "get_tag_blog" : "/tag_blog/",
     'register': '/users/',
-    'get_all_user': '/user/',
+    'get_all_user': '/users/',
     'get_transport' : '/transport/',
     'get_view' : '/view/get_view/',
     'inc_view' : '/view/inc_view/',

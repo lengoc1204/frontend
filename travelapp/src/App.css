@@ -99,6 +99,10 @@ small {
   padding-left: 0;
   list-style: none;
 }
+.footer-info .list-unstyled a, span{
+  color:white !important;
+  font-family: "Playfair Display", serif;
+}
 .btn-contact {
   color: #fff;
   background-color: #071c55 !important;
@@ -113,9 +117,9 @@ small {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .btn-contact:hover {
-  background: #ffffff !important;
+  background: #f3941e !important;
+  border: none !important;
   color: #071c55 !important;
-  border-color: #565dbd;
 }
 /*REGISTER PAGE */
 
@@ -346,6 +350,7 @@ label {
 
 .nav-container {
   display: flex;
+  font-family: "Playfair Display", serif;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -389,7 +394,9 @@ label {
   color: #000000;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  font-weight: 500;
   height: 100%;
+  letter-spacing: 2px;
   border-bottom: 3px solid transparent;
 }
 
@@ -415,11 +422,11 @@ label {
   width: 100%;
   background: #071c55;
 }
-@media only screen and (max-width: 990px) {
+/* @media only screen and (max-width: 990px) {
   .nav-item:last-child {
     display: none !important;
   }
-}
+} */
 .nav-item.active {
   color: #071c55;
   border: 1px solid #071c55;
@@ -567,7 +574,8 @@ label {
 .tour-list-breadcrumb-area .page-title {
   font-size: 55px;
   font-weight: 700;
-  color: #071c55;
+  letter-spacing: 3px;
+  color: white;
   margin-bottom: 15px;
 }
 .search-area .search-tour-side {

@@ -17,7 +17,7 @@ export default function SearchBar(){
   useEffect(()=>{
     handleFetchDeparture();
     handleFetchDestination();
-  })
+  }, [])
     return(
         <>
         <div className='container'>

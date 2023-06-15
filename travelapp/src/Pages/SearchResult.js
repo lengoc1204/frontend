@@ -14,9 +14,9 @@ export default function SearchResult() {
   const [tour, setTour] = useState([]);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  useEffect(async () => {
+  useEffect( () => {
     setLoading(true);
-    let res = await Apis.get(`${endpoints["tour"]}${location.search}`)
+     Apis.get(`${endpoints["tour"]}${location.search}`)
       .then((res) => {
         setLoading(false);
         setTour(res.data.results);
@@ -25,6 +25,7 @@ export default function SearchResult() {
         setLoading(false);
       });
   }, [location.search]);
+
   if (tour !== "" && tour.length !== 0 && tour !== null && tour !== undefined) {
     return (
       <div>
