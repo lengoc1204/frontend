@@ -114,15 +114,15 @@ export default function Profile() {
     setIs_open_confirm(false);
     setID(0);
   };
-  let openModal_update = (e) => {
-    setID($(e.target).closest("tr").attr("id"));
-    setIs_open_update(true);
-  };
+  // let openModal_update = (e) => {
+  //   setID($(e.target).closest("tr").attr("id"));
+  //   setIs_open_update(true);
+  // };
 
-  let closeModal_update = () => {
-    setIs_open_update(false);
-    setID(0);
-  };
+  // let closeModal_update = () => {
+  //   setIs_open_update(false);
+  //   setID(0);
+  // };
 
   let cancel_booking = async (e) => {
     e.preventDefault();
@@ -483,7 +483,7 @@ function BookingItem(props) {
   return (
     <Col sm={6}>
       <div className="most-view-item">
-        <div className="single-view" id={props.booking}>
+        <div className="single-view" id={props.booking.tour.id}>
           <div className="view-img">
             {props.booking.status2 === "Booking canceled" && (
               <span

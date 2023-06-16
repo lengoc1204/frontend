@@ -16,6 +16,7 @@ export default function Register() {
   const [last_name, setLast_name] = useState([]);
   const avatar = useRef()
 
+  const [err, setErr] = useState(null);
   const navigate = useNavigate();
 
   const register = async (event) => {
@@ -27,6 +28,7 @@ export default function Register() {
       formdata.append("email", email);
       formdata.append("username", username);
       formdata.append("password", password);
+      if(password === confirm){
       try {
         let res = await Apis.post(endpoints["register"], formdata, {
           headers: {
@@ -49,6 +51,8 @@ export default function Register() {
       }
     } else {
       document.getElementById("");
+    }}else{
+      setErr("Passwords must match")
     }
   };
 
@@ -121,6 +125,7 @@ export default function Register() {
                       className="form-control"
                       placeholder="Confirm Password"
                       required />
+                      {err !== null ? <div>{err}</div> : null}
                   </div>
                   <div class="form-group">
                     <button

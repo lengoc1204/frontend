@@ -99,7 +99,7 @@ small {
   padding-left: 0;
   list-style: none;
 }
-.footer-info .list-unstyled a, span{
+.footer-info .list-unstyled a, .footer-info .list-unstyled span{
   color:white !important;
   font-family: "Playfair Display", serif;
 }

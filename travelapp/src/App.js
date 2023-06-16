@@ -1,9 +1,5 @@
-
 import "./App.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Booking from "./Pages/Booking";
 import NotFountPage from "./Pages/NotFoundPage";
 import Layout from "./Components/Layout";
@@ -15,6 +11,7 @@ import Details from "./Pages/Details";
 import Profile from "./Pages/Profile";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Register from "./Pages/Register";
+import { useSelector } from "react-redux";
 
 function App() {
   
@@ -37,32 +34,29 @@ function App() {
           path: "/tours/:tourId",
           element: <Details />,
         },
-        {path: '/tours/:tourId/booking',
-      element: <Booking />},
+        { path: "/tours/:tourId/booking", element: <Booking /> },
         {
           path: "/register",
-          
+
           element: <Register />,
         },
         {
           path: "/forgot-pasword",
-          
+
           element: <ForgotPassword />,
         },
         {
-          path: '/profile',
-          element: <Profile />
+          path: "/profile",
+          element: <Profile />,
         },
-        {path: '/search',
-        element: <SearchResult />
-      },{
-      path: "/login",
-      element: <Signin />,
-    },
+        { path: "/search", element: <SearchResult /> },
         { path: "*", element: <NotFountPage /> },
       ],
     },
-    
+    {
+      path: "/login",
+      element: <Signin />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
