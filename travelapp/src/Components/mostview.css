@@ -1,0 +1,212 @@
+.most-view-list-slider {
+  position: relative;
+}
+.most-view-item{
+  padding-bottom: 25px;
+}
+.single-view {
+  margin: 15px;
+  -webkit-box-shadow: 0px 3px 9px #071c551f !important;
+  box-shadow: 0px 3px 9px #071c551f !important;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.single-view::before {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  background: rgba(243, 148, 30, 0.3) !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.single-view::after {
+  content: "";
+  position: absolute;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 10px;
+  background: #f3941e !important;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.9s ease;
+  -moz-transition: all 0.9s ease;
+  -o-transition: all 0.9s ease;
+  transition: all 0.9s ease;
+}
+.single-view:hover::after {
+  visibility: visible;
+  opacity: 1;
+  right: auto;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+.single-view .view-img {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  height: 190px;
+}
+.single-view .view-img:after {
+  /* content: ''; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rebeccapurple;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  }
+.most-view-detail {
+  background-color: #ffffff;
+  padding: 22px 15px;
+}
+.list-detail li {
+  display: inline-block;
+  margin: 0 6px;
+  font-size: 13px;
+}
+svg{
+  padding-right: 5px;
+}
+.border-bt-dot {
+  border-bottom: 1px dashed #f3941e;
+}
+.single-view .view-img .tour-label {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
+  color: #ffffff;
+  background-color: #071c55;
+  padding: 3px 35px;
+  font-size: 14px;
+  z-index: 2;
+}
+.single-view .view-img .tour-label::after {
+  content: "";
+  /*background-image: url(../img/shape-1.png);*/
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+  height: 43px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  background-position: 100% 100%;
+  z-index: -1;
+  top: -3px;
+}
+.single-view .view-img img {
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  max-width: 100%;
+  height: 100%;
+}
+.single-view:hover .btn-tour-detail {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+}
+.single-view:hover .btn-tour-detail img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.single-view:hover .view-img img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+.single-view:hover .view-img::after {
+  visibility: visible !important;
+  opacity: 0.6 !important;
+  
+}
+.view-img .btn-tour-detail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 2;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+.tour-btn button {
+  background-color: #f3941e !important;
+  color: #ffffff;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 22px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  transition: all 0.5s ease;
+}
+.tour-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-transform: scale(1, 0.5);
+  -ms-transform: scale(1, 0.5);
+  transform: scale(1, 0.5);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.react-multiple-carousel__arrow--right::before {
+  content: "\2192";
+}
+.react-multiple-carousel__arrow--left::before {
+  content: "\2190";
+}
+.react-multiple-carousel__arrow::before {
+  font-size: 25px;
+  color: #f3941e;
+  display: block;
+  font-family: revicons;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+.react-multi-carousel-dot--active button {
+  background: #f3941e !important;
+}
